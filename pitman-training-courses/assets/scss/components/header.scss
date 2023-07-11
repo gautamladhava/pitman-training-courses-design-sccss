@@ -1,0 +1,225 @@
+body {
+
+
+    &.open {
+        .header {
+            .header-block {
+                .open-menu {
+                    .bar1 {
+                        @include rem-fallback(margin, 5, 0);
+                        background-color: $blue;
+                        transform: translateY(7px) rotate(-45deg);
+                        transition: all 0.5s;
+                    }
+
+                    .bar2 {
+                        @include rem-fallback(margin, 5, 0);
+                        background-color: $blue;
+                        opacity: 0;
+                        transition: all 0.5s;
+                    }
+
+                    .bar3 {
+                        @include rem-fallback(margin, 5, 0);
+                        background-color: $blue;
+                        transform: translateY(-7px) rotate(45deg);
+                        transition: all 0.5s;
+                    }
+                }
+
+                .menu-list {
+                    left: 0;
+                    transition: all 0.5s;
+                }
+            }
+        }
+    }
+}
+
+.header {
+    @include rem-fallback(padding, 23, 0);
+    position: fixed;
+    background-color: $white;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+
+    @include bp(smd-max) {
+        @include rem-fallback(padding, 15, 0);
+
+    }
+    @include bp(xs-max){
+        @include rem-fallback(padding,10,0)
+    }
+
+    .owerlly {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: $owerlly_color;
+        top: 70px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 3;
+        display: none;
+        transition: all 0.8s;
+        &.open{
+            display: block;
+            transition: all 0.8s;
+        }
+    }
+
+    .header-block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+
+      
+        .logo {
+            img {
+                @include bp(smlg-max) {
+                    @include rem-fallback(width, 150);
+                    @include rem-fallback(height, 40);
+                }
+                @include bp(xs-max){
+                    @include rem-fallback(width,130);
+                    @include rem-fallback(height,35)
+                }
+            }
+        }
+
+        .open-menu {
+            cursor: pointer;
+            display: none;
+
+            @include rem-fallback(padding, 4);
+
+            @include bp(smd-max) {
+                display: block
+            }
+
+         
+
+            .bar1 {
+                @include rem-fallback(height, 2);
+                @include rem-fallback(width, 25);
+                @include rem-fallback(margin, 5, 0);
+                background-color: $blue;
+                transition: all 0.5s;
+            }
+
+            .bar2 {
+                @include rem-fallback(height, 2);
+                @include rem-fallback(width, 15);
+                @include rem-fallback(margin, 5, 0);
+                background-color: $blue;
+                transition: all 0.5s;
+            }
+
+            .bar3 {
+                @include rem-fallback(height, 2);
+                @include rem-fallback(width, 25);
+                @include rem-fallback(margin, 5, 0);
+                background-color: $blue;
+                transition: all 0.5s;
+            }
+
+        }
+
+        .menu-list {
+            display: flex;
+            z-index: 8;
+
+            li {
+                @include rem-fallback(padding, 10, 21);
+
+                @include bp(xlg-max) {
+                    @include rem-fallback(padding, 5, 10);
+                }
+
+                @include bp(tablet-max) {
+                    @include rem-fallback(padding,5, 8);
+                }
+                @include bp(smd-max){
+                    @include rem-fallback(padding,5,0)
+                }
+
+
+                a {
+                    color: $text-color;
+                    @include rem-fallback(font-size, 18);
+
+                    &:hover {
+                        color: $orange;
+                        transition: all 0.5s
+                    }
+                }
+
+                @include bp(tablet-max) {
+                    @include rem-fallback(font-size, 16);
+                }
+
+                &.desktop-hide {
+                    display: none;
+
+                    a {
+                        color: $blue;
+                    }
+
+                    @include bp(smd-max) {
+                        display: flex;
+                    }
+                }
+            }
+
+            @include bp(smd-max) {
+                transition: all 0.5s;
+                position: fixed;
+                left: 0;
+                @include rem-fallback(top, 97);
+                background-color: #0d485d;
+               
+                bottom: 0;
+                flex-direction: column;
+                @include rem-fallback(padding, 20);
+                @include rem-fallback(width, 250);
+                @include rem-fallback(left, -250);
+                li{
+                    a{
+                        color: $white
+                    }
+                    .contact-info{
+                        color: $white;
+                        a{
+                            color: $white;
+                        }
+                    }
+                }
+            }
+
+            
+        }
+
+
+        .contact-info {
+            @include rem-fallback(font-size, 20);
+            color: $blue;
+            text-align: end;
+            font-weight: 600;
+
+            &.desktop-show {
+                @include bp(smd-max) {
+                    display: none;
+                }
+            }
+
+            a {
+                color: $blue;
+            }
+        }
+    }
+}

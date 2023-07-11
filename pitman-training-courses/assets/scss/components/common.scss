@@ -1,0 +1,246 @@
+* {
+    &::after {
+        box-sizing: border-box;
+    }
+
+    &::before {
+        box-sizing: border-box;
+    }
+}
+
+.bg-text {
+    @include rem-fallback(font-size, 20);
+
+    @include bp(smd-max) {
+        @include rem-fallback(font-size, 18);
+    }
+
+    @include bp(xs-max) {
+        @include rem-fallback(font-size, 15);
+    }
+}
+
+.sm-text {
+    @include rem-fallback(font-size, 14);
+
+    @include bp(smd-max) {
+        @include rem-fallback(font-size, 13);
+    }
+
+    @include bp(xs-max) {
+        @include rem-fallback(font-size, 12);
+    }
+}
+html {
+    scroll-behavior: smooth;
+  }
+
+.orange-text {
+    color: #EA7024;
+}
+
+.main-wrapper {
+    @include rem-fallback(padding-top, 97);
+
+}
+
+.wrapper {
+    min-height: 100vh;
+}
+
+.text-style {
+    position: relative;
+    @include rem-fallback(margin-bottom, 73);
+@include bp(smlg-max){
+    @include rem-fallback(margin-bottom,50)
+}
+    &::after {
+        position: absolute;
+        content: "";
+        background-color: $green;
+        left: 50%;
+        transform: translateX(-50%);
+        @include rem-fallback(height, 4);
+        @include rem-fallback(width, 60);
+        @include rem-fallback(bottom, -25);
+        @include rem-fallback(border-radius, 40);
+        @include bp(smlg-max){
+            @include rem-fallback(bottom,-15)
+        }
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        background-color: $green;
+        left: calc(50% + 38px);
+        transform: translateX(-50%);
+        @include rem-fallback(height, 4);
+        @include rem-fallback(width, 4);
+        @include rem-fallback(bottom, -25);
+        @include rem-fallback(border-radius, 50%);
+        @include bp(smlg-max){
+            @include rem-fallback(bottom,-15)
+        }
+    }
+}
+
+.row {
+    text-align: start;
+    @include rem-fallback(margin-bottom, 29);
+
+    input {
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid $border-color;
+        @include rem-fallback(padding, 0);
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        &:focus {
+            box-shadow: none;
+            border-bottom: 1px solid $blue;
+        }
+    }
+
+    textarea {
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid $border-color;
+        width: 100%;
+        resize: none;
+        @include rem-fallback(padding, 0);
+
+        &:focus-visible {
+            outline: none;
+            border-bottom: 1px solid $blue;
+        }
+    }
+
+    label {
+        @include rem-fallback(padding, 0, 10);
+        @include rem-fallback(font-size, 14);
+
+        @include bp(smd-max) {
+            @include rem-fallback(font-size, 13);
+        }
+
+    }
+
+    .row {
+        @include rem-fallback(margin-bottom, 0)
+    }
+}
+
+.btn {
+    background-color: $orange;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    @include rem-fallback(padding, 8, 42);
+
+    @include rem-fallback(border-radius, 40);
+    transition: all 0.5s;
+    @include rem-fallback(font-size, 18);
+
+
+    @include bp(smd-max) {
+        @include rem-fallback(font-size, 16);
+        @include rem-fallback(padding, 10, 35);
+    }
+
+    @include bp(xs-max) {
+        @include rem-fallback(font-size, 14);
+        @include rem-fallback(padding, 6, 15);
+    }
+}
+
+.primary-btn:hover {
+    background-color: transparent;
+    color: $text-color;
+    border: 1px solid $text-color;
+    transition: all 0.5s;
+}
+
+.white-border {
+    position: relative;
+
+    &::after {
+        position: absolute;
+        content: "";
+        @include rem-fallback(height, 1);
+        width: 0;
+        background-color: $blue;
+        bottom: 0;
+        left: 0;
+        transition: all 0.5s;
+    }
+
+    &:hover::after {
+        width: 100%;
+        transition: all 0.5s;
+    }
+
+}
+
+.blue-border {
+    position: relative;
+
+    &::after {
+        position: absolute;
+        content: "";
+        @include rem-fallback(height, 1);
+        width: 100%;
+        background-color: $blue;
+        bottom: 0;
+        left: 0;
+        transition: all 0.5s;
+    }
+
+    &:hover::after {
+        width: 0;
+        transition: all 0.5s;
+    }
+
+}
+
+.slick-dots {
+    @include rem-fallback(bottom, 0);
+   margin-right: 0;
+   margin-left: auto;
+    width: 60%;
+    right: 0;
+    @include bp(smd-max){
+        @include rem-fallback(bottom, 0);
+        
+    }
+    @include bp(smlg-max){
+        width: 100%;
+        @include rem-fallback(bottom, -10);
+       
+    }
+}
+
+.slick-dots li button:before {
+    background-color: #ffffff;
+    @include rem-fallback(height, 10);
+    @include rem-fallback(width, 10);
+    border-radius: 50%;
+}
+
+.slick-dots li button {
+    @include rem-fallback(height, 10);
+    @include rem-fallback(width, 10);
+}
+
+.slick-dots li {
+    @include rem-fallback(height, 10);
+    @include rem-fallback(width, 10);
+    @include rem-fallback(margin, 0, 3)
+}
